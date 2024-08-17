@@ -1,0 +1,25 @@
+<nav class="navbar navbar-dark bg-dark fixed-top">
+  <div class="container-fluid">
+      <a class="navbar-brand" routerLink="/">Expense App</a>&nbsp; &nbsp; &nbsp;
+
+      <a class="navbar-brand" *ngIf="CheckStatus">{{UserName}}</a>&nbsp; &nbsp; &nbsp;
+
+      <a class="navbar-brand" routerLink="/addexpensegroup" *ngIf="CheckRole2()">Add ExpenseGroup</a>&nbsp; &nbsp; &nbsp;
+
+      <a class="navbar-brand" routerLink="/expenseGroups">Expenses</a>&nbsp; &nbsp; &nbsp;
+
+      <a class="navbar-brand" routerLink="/allUsers" *ngIf="CheckRole()">Users</a>&nbsp; &nbsp; &nbsp;
+
+      <div class="navbar-nav ms-auto">
+        <ng-container *ngIf="!CheckStatus; else LoggedIn">
+          <a class="navbar-brand" routerLink="/loginpage">Login</a>
+        </ng-container>
+        <ng-template #LoggedIn>
+          <button id="logoutbutton" (click)="LogOut()" *ngIf="CheckStatus">Logout</button>
+        </ng-template>
+    </div>
+      
+  </div>
+</nav> 
+
+<router-outlet></router-outlet>

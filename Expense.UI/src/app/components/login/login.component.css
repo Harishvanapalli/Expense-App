@@ -1,0 +1,59 @@
+.login {
+    max-width: 400px;
+    margin: auto;
+    margin-top: 120px;
+    padding: 20px;
+    background: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.login h1{
+    text-align: center;
+}
+
+.login form{
+    display: flex;
+    flex-direction: column;
+}
+
+.login label{
+    margin-top: 15px;
+    font-size: 15px;
+}
+
+#logbut{
+    margin-top: 23px;
+    padding: 8px;
+    margin-bottom: 15px;
+    font-size: 15px;
+}
+
+.login p{
+    margin-top: 12px;
+    text-align: center;
+}
+
+.login input{
+    border : 1px solid black;
+    border-radius: 6px;
+    padding: 8px;
+    margin-bottom: 12px;
+}
+
+.login a{
+    text-decoration: none;
+}
+
+.login a:hover{
+    text-decoration: underline;
+}
+
+.login .error{
+    color: red;
+    margin-top: 2px;
+}
+
+
+
+

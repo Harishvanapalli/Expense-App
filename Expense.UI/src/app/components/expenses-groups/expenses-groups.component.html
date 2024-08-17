@@ -1,0 +1,22 @@
+<div class="MainContainer">
+  <div *ngIf="ExpenseGroups.length == 0" style="margin-top: 100px; margin-left: 20%;">
+    <p><strong>There are no Expense Groups! you can add by navigating to Add Expense Group</strong></p>
+  </div>
+<div class="expense-group-container" *ngFor="let group of ExpenseGroups">
+    <div class="expense-group" (click)="openExpenses(group.groupExpenses, group.expenseGroupID)">
+      <h2>{{ group.group_Name }}</h2>
+      <p>{{ group.description }}</p>
+      <div class="members">
+        <h3>Members:</h3>
+        <ul>
+          <li *ngFor="let member of group.members">{{ member }}</li>
+        </ul>
+      </div>
+      <div class="expenses">
+        <h3>Expenses:</h3>
+        <p>{{ group.expenses | currency }}</p>
+        <p><strong>Date:</strong> {{group.created_Date | date}}</p>
+      </div>
+    </div>
+  </div>
+</div>

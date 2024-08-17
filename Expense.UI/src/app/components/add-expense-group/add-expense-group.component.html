@@ -1,0 +1,46 @@
+<div class="MainContainer">
+<div class="ExpenseGroup">
+    <h1>Add Expense Group</h1>
+    <form [formGroup]="expenseGroup">
+        <div class="form-group">
+            <label for="group_name">Group Name</label>
+            <input type="text" id="group_name" formControlName="group_name" class="form-control" />
+            <div *ngIf="expenseGroup.get('group_name')?.invalid && expenseGroup.get('group_name')?.touched">
+                <div *ngIf="expenseGroup.get('group_name')?.errors?.['required']" class="text-danger">Group Name is required.</div>
+                <div *ngIf="expenseGroup.get('group_name')?.errors?.['minlength']" class="text-danger">Minimum length should be 10 characters.</div>
+                <div *ngIf="expenseGroup.get('group_name')?.errors?.['maxlength']" class="text-danger">Maximum length should be 50 characters.</div>
+            </div>
+          </div>
+      
+          <div class="form-group">
+            <label for="description">Description</label>
+            <textarea id="description" formControlName="description" class="form-control"></textarea>
+            <div *ngIf="expenseGroup.get('description')?.invalid && expenseGroup.get('description')?.touched">
+                <div *ngIf="expenseGroup.get('description')?.errors?.['required']" class="text-danger">Description is required.</div>
+                <div *ngIf="expenseGroup.get('description')?.errors?.['minlength']" class="text-danger">Minimum length should be 15 characters.</div>
+                <div *ngIf="expenseGroup.get('description')?.errors?.['maxlength']" class="text-danger">Maximum length should be 50 characters.</div>
+            </div>
+          </div>
+      
+          <div class="form-group">
+            <label for="members">Members (comma-separated emails)</label>
+            <input type="text" id="members" formControlName="members" class="form-control" />
+            <div *ngIf="expenseGroup.get('members')?.touched">
+                <div *ngIf="expenseGroup.get('members')?.hasError('required')" class="text-danger">Members are required.</div>
+            </div>
+          </div>
+      
+          <div class="form-group">
+            <label for="expenses">Expenses</label>
+            <input type="number" id="expenses" formControlName="expenses" class="form-control" step="0.01" />
+            <div *ngIf="expenseGroup.get('expenses')?.invalid && expenseGroup.get('expenses')?.touched">
+                <div *ngIf="expenseGroup.get('expenses')?.errors?.['required']" class="text-danger">Expenses are required.</div>
+                <div *ngIf="expenseGroup.get('expenses')?.errors?.['pattern']" class="text-danger">Invalid number format.</div>
+                <div *ngIf="expenseGroup.get('expenses')?.errors?.['min']" class="text-danger">Expense should be non-negative.</div>
+            </div>
+          </div>
+
+        <button id="addgroupBut" class="btn btn-primary" type="submit" (click)="onSubmitForm()">Add Group</button>
+    </form>
+</div>
+</div>

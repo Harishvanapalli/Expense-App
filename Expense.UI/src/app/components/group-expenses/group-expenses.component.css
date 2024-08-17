@@ -1,0 +1,89 @@
+  .MainContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .expense-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+  
+  .expense-details {
+    flex: 1;
+  }
+  
+  .expense-status {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .expense-status h3 {
+    font-size: 1.2em;
+    color: #555;
+  }
+  
+  .expense-status p {
+    margin: 5px 0;
+  }
+  
+  .split-among {
+    margin-top: 10px;
+  }
+  
+  .buttonContainer{
+    display: flex;
+    justify-content: center;
+    margin-top: 80px;
+  }
+  .buttonContainer2 {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    margin-left: 90%;
+  }
+  
+  .buttonContainer button,
+  .buttonContainer2 button {
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .buttonContainer button:hover,
+  .buttonContainer2 button:hover {
+    background-color: #0056b3;
+  }
+
+  #payButton{
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  #editButton{
+    margin-bottom: 15px;
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  

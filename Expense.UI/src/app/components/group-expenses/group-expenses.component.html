@@ -1,0 +1,40 @@
+
+
+<div class="MainContainer">
+  <div class="buttonContainer">
+    <button (click)="AddExpense()" id="ExpenseButton" *ngIf="UserRole == 'User'">Add Expense</button>
+  </div>
+  <p *ngIf="Expenses.length == 0">
+    <strong>No Expenses in this Group! You can add an expense by clicking on the above button</strong>
+  </p>
+  <div class="expenses-container" *ngFor="let expense of Expenses">
+    <div class="expense-item">
+      <div class="expense-details">
+        <h3>{{ expense.description }}</h3>
+        <p><strong>Amount:</strong> {{ expense.amount | currency }}</p>
+        <p><strong>Paid By:</strong> {{ expense.paid_by }}</p>
+        <p><strong>Date:</strong> {{ expense.created_date | date}}</p>
+        <div class="split-among">
+          <h4>Split Among:</h4>
+          <ul>
+            <li *ngFor="let person of expense.split_among">{{ person }}</li>
+          </ul>
+        </div>
+      </div>
+      <div class="expense-status">
+        <button *ngIf="UserRole == 'Administrator'" (click)="EditExpense(expense)" id="editButton">Edit</button>
+        <h3>{{ CheckStatus(expense) ? 'Settled' : 'Under Process' }}</h3>
+        <div *ngIf="CheckPay(expense)">
+          <div>
+            <p>{{ CheckPaidorNot(expense) ? 'You paid ' : 'You should pay ' }} {{expense.amount / expense.split_among.length | currency}} </p>
+            <button *ngIf="!CheckPaidorNot(expense)" (click)="PayExpense(expense)" id="payButton">Pay</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="buttonContainer2" *ngIf="Expenses.length != 0">
+    <button (click)="AddExpense()" id="ExpenseButton2" *ngIf="Expenses.length != 0 && UserRole == 'User'">Add Expense</button>
+  </div>
+</div>
+
